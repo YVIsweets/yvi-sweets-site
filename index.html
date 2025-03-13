@@ -60,4 +60,68 @@
         <table>
             <tr>
                 <th>Десерт</th>
-                <th>Вес</
+                <th>Вес</th>
+                <th>Цена за 1 кг</th>
+            </tr>
+            <tr>
+                <td>Торт "Шоколадное наслаждение"</td>
+                <td>1 кг</td>
+                <td>30€</td>
+            </tr>
+            <tr>
+                <td>Торт "Ягодный рай"</td>
+                <td>1 кг</td>
+                <td>28€</td>
+            </tr>
+            <tr>
+                <td>Кето-торт</td>
+                <td>1 кг</td>
+                <td>35€</td>
+            </tr>
+            <tr>
+                <td>ПП-десерт</td>
+                <td>500 г</td>
+                <td>18€</td>
+            </tr>
+        </table>
+
+        <h2>Оформите заказ</h2>
+        <form id="orderForm">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" required>
+
+            <label for="dessert">Выберите десерт:</label>
+            <select id="dessert">
+                <option value="Торт \"Шоколадное наслаждение\"">Торт "Шоколадное наслаждение"</option>
+                <option value="Торт \"Ягодный рай\"">Торт "Ягодный рай"</option>
+                <option value="Кето-торт">Кето-торт</option>
+                <option value="ПП-десерт">ПП-десерт</option>
+            </select>
+
+            <button type="submit">Отправить заказ</button>
+        </form>
+        
+        <a href="https://www.instagram.com/YVI_SWEETS/">Связаться через Instagram</a>
+    </div>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let dessert = document.getElementById("dessert").value;
+            
+            let message = `Новый заказ!%0AИмя: ${name}%0AТелефон: ${phone}%0AДесерт: ${dessert}`;
+            
+            let telegramURL = `https://api.telegram.org/bot[TOKEN]/sendMessage?chat_id=[CHAT_ID]&text=${message}`;
+            
+            fetch(telegramURL)
+                .then(response => alert("Заказ отправлен! Мы свяжемся с вами."))
+                .catch(error => alert("Ошибка отправки заказа."));
+        });
+    </script>
+</body>
+</html>
