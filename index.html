@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заказ тортов | YVI SWEETS</title>
+    <title>YVI SWEETS - Заказ десертов</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +14,7 @@
             color: #4b0082;
         }
         .container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 50px auto;
             background: white;
             padding: 20px;
@@ -23,13 +22,17 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         h2 { color: #6a0dad; }
-        label { display: block; margin-top: 10px; color: #4b0082; }
-        input, select, textarea {
+        table {
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
             padding: 10px;
-            margin-top: 5px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+        }
+        th {
+            background-color: #e0b3ff;
         }
         button {
             margin-top: 20px;
@@ -40,97 +43,21 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .catalog {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .product {
-            width: 45%;
-            background: #f8e8ff;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
+        a {
+            display: block;
+            margin-top: 15px;
+            color: #4b0082;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Добро пожаловать в YVI SWEETS</h2>
-        <p>Выберите ваш идеальный торт!</p>
+        <h2>YVI SWEETS - Десерты на заказ</h2>
+        <p>Выберите свой любимый десерт!</p>
 
-        <div class="catalog">
-            <div class="product">
-                <img src="cake1.jpg" alt="Шоколадный торт">
-                <p><strong>Шоколадный торт</strong></p>
-                <p>Состав: шоколадный бисквит, ганаш, вишня</p>
-            </div>
-            <div class="product">
-                <img src="cake2.jpg" alt="Ванильный торт">
-                <p><strong>Ванильный торт</strong></p>
-                <p>Состав: ванильный бисквит, сливочный крем, ягоды</p>
-            </div>
-            <div class="product">
-                <img src="cake3.jpg" alt="Кето-торт">
-                <p><strong>Кето-торт</strong></p>
-                <p>Состав: миндальная мука, стевия, сливочный крем</p>
-            </div>
-        </div>
-
-        <h2>Оформите заказ</h2>
-        <form id="orderForm">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" required>
-
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" required>
-
-            <label for="cake">Выберите торт:</label>
-            <select id="cake">
-                <option value="Шоколадный торт">Шоколадный торт</option>
-                <option value="Ванильный торт">Ванильный торт</option>
-                <option value="Кето-торт">Кето-торт</option>
-            </select>
-
-            <label for="decor">Выберите декор:</label>
-            <select id="decor">
-                <option value="Классический">Классический</option>
-                <option value="С ягодами">С ягодами</option>
-                <option value="Съедобные цветы">Съедобные цветы</option>
-            </select>
-
-            <label for="comments">Доп. пожелания:</label>
-            <textarea id="comments"></textarea>
-
-            <button type="submit">Отправить заказ</button>
-        </form>
-        <p><a href="https://www.instagram.com/YVI_SWEETS/">Связаться через Instagram</a></p>
-    </div>
-
-    <script>
-        document.getElementById("orderForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let name = document.getElementById("name").value;
-            let phone = document.getElementById("phone").value;
-            let cake = document.getElementById("cake").value;
-            let decor = document.getElementById("decor").value;
-            let comments = document.getElementById("comments").value;
-            
-            let message = `Новый заказ!%0AИмя: ${name}%0AТелефон: ${phone}%0AТорт: ${cake}%0AДекор: ${decor}%0AПожелания: ${comments}`;
-            
-            let telegramURL = `https://api.telegram.org/bot[TOKEN]/sendMessage?chat_id=[CHAT_ID]&text=${message}`;
-            
-            fetch(telegramURL)
-                .then(response => alert("Заказ отправлен! Мы свяжемся с вами."))
-                .catch(error => alert("Ошибка отправки заказа."));
-        });
-    </script>
-</body>
-</html>
+        <table>
+            <tr>
+                <th>Десерт</th>
+                <th>Вес</
