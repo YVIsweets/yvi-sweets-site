@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YVI SWEETS - Заказ десертов</title>
+    <title>YVI SWEETS - Десерты на заказ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
             color: #4b0082;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 50px auto;
             background: white;
             padding: 20px;
@@ -22,17 +22,33 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         h2 { color: #6a0dad; }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             margin-top: 20px;
         }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
+        .category {
+            padding: 10px 15px;
+            background: #e0b3ff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
-        th {
-            background-color: #e0b3ff;
+        .category:hover {
+            background: #d18be0;
+        }
+        .products {
+            display: none;
+            margin-top: 20px;
+        }
+        .product {
+            background: #f8e8ff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
         }
         button {
             margin-top: 20px;
@@ -55,73 +71,58 @@
 <body>
     <div class="container">
         <h2>YVI SWEETS - Десерты на заказ</h2>
-        <p>Выберите свой любимый десерт!</p>
-
-        <table>
-            <tr>
-                <th>Десерт</th>
-                <th>Вес</th>
-                <th>Цена за 1 кг</th>
-            </tr>
-            <tr>
-                <td>Торт "Шоколадное наслаждение"</td>
-                <td>1 кг</td>
-                <td>30€</td>
-            </tr>
-            <tr>
-                <td>Торт "Ягодный рай"</td>
-                <td>1 кг</td>
-                <td>28€</td>
-            </tr>
-            <tr>
-                <td>Кето-торт</td>
-                <td>1 кг</td>
-                <td>35€</td>
-            </tr>
-            <tr>
-                <td>ПП-десерт</td>
-                <td>500 г</td>
-                <td>18€</td>
-            </tr>
-        </table>
-
-        <h2>Оформите заказ</h2>
-        <form id="orderForm">
-            <label for="name">Имя:</label>
-            <input type="text" id="name" required>
-
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" required>
-
-            <label for="dessert">Выберите десерт:</label>
-            <select id="dessert">
-                <option value="Торт \"Шоколадное наслаждение\"">Торт "Шоколадное наслаждение"</option>
-                <option value="Торт \"Ягодный рай\"">Торт "Ягодный рай"</option>
-                <option value="Кето-торт">Кето-торт</option>
-                <option value="ПП-десерт">ПП-десерт</option>
-            </select>
-
-            <button type="submit">Отправить заказ</button>
-        </form>
+        <p>Выберите категорию:</p>
         
-        <a href="https://www.instagram.com/YVI_SWEETS/">Связаться через Instagram</a>
+        <div class="categories">
+            <div class="category" onclick="showProducts('cakes')">Торты</div>
+            <div class="category" onclick="showProducts('pastry')">Пасха</div>
+            <div class="category" onclick="showProducts('to_go')">Десерты To Go</div>
+            <div class="category" onclick="showProducts('bento')">Бенто-торты</div>
+            <div class="category" onclick="showProducts('candy_bar')">Кенди-бар</div>
+            <div class="category" onclick="showProducts('pies')">Пироги</div>
+        </div>
+        
+        <div id="cakes" class="products">
+            <div class="product">Наполеон - 30€/кг</div>
+            <div class="product">Медовик (классический) - 28€/кг</div>
+            <div class="product">Красный Бархат - 30€/кг</div>
+        </div>
+        
+        <div id="pastry" class="products">
+            <div class="product">Царский кулич на сливках - 20€/шт</div>
+            <div class="product">Классический кулич - 18€/шт</div>
+            <div class="product">Паннетоне - 25€/шт</div>
+        </div>
+        
+        <div id="to_go" class="products">
+            <div class="product">Чизкейк с муссом - 6€/порция</div>
+            <div class="product">Сникерс - 5€/порция</div>
+        </div>
+        
+        <div id="bento" class="products">
+            <div class="product">Классический шоколадный - 18€/шт</div>
+            <div class="product">Фисташковый - 20€/шт</div>
+        </div>
+        
+        <div id="candy_bar" class="products">
+            <div class="product">Макаронс (ассорти 6 шт) - 12€</div>
+            <div class="product">Трайфлы - 4€/шт</div>
+        </div>
+        
+        <div id="pies" class="products">
+            <div class="product">Вишнёвый пирог - 22€/кг</div>
+            <div class="product">Яблочный штрудель - 20€/кг</div>
+        </div>
+        
+        <button onclick="location.href='https://www.instagram.com/YVI_SWEETS/'">Связаться через Instagram</button>
     </div>
 
     <script>
-        document.getElementById("orderForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let name = document.getElementById("name").value;
-            let phone = document.getElementById("phone").value;
-            let dessert = document.getElementById("dessert").value;
-            
-            let message = `Новый заказ!%0AИмя: ${name}%0AТелефон: ${phone}%0AДесерт: ${dessert}`;
-            
-            let telegramURL = `https://api.telegram.org/bot[TOKEN]/sendMessage?chat_id=[CHAT_ID]&text=${message}`;
-            
-            fetch(telegramURL)
-                .then(response => alert("Заказ отправлен! Мы свяжемся с вами."))
-                .catch(error => alert("Ошибка отправки заказа."));
-        });
+        function showProducts(category) {
+            document.querySelectorAll('.products').forEach(el => el.style.display = 'none');
+            document.getElementById(category).style.display = 'block';
+        }
     </script>
 </body>
 </html>
+
