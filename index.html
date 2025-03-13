@@ -99,22 +99,26 @@
             <div class="product">Сникерс - 5€/порция</div>
         </div>
         
-        <div id="bento" class="products">
-            <div class="product">Классический шоколадный - 18€/шт</div>
-            <div class="product">Фисташковый - 20€/шт</div>
-        </div>
-        
-        <div id="candy_bar" class="products">
-            <div class="product">Макаронс (ассорти 6 шт) - 12€</div>
-            <div class="product">Трайфлы - 4€/шт</div>
-        </div>
-        
-        <div id="pies" class="products">
-            <div class="product">Вишнёвый пирог - 22€/кг</div>
-            <div class="product">Яблочный штрудель - 20€/кг</div>
-        </div>
+        <form id="orderForm">
+            <h3>Оформление заказа</h3>
+            <label for="name">ФИО:</label>
+            <input type="text" id="name" required>
+            
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" required>
+            
+            <label for="dessert">Выберите десерт:</label>
+            <select id="dessert">
+                <option value="Наполеон">Наполеон</option>
+                <option value="Медовик (классический)">Медовик (классический)</option>
+                <option value="Красный Бархат">Красный Бархат</option>
+            </select>
+            
+            <button type="submit">Отправить заказ</button>
+        </form>
         
         <button onclick="location.href='https://www.instagram.com/YVI_SWEETS/'">Связаться через Instagram</button>
+        <button onclick="location.href='https://t.me/YVI_SWEETS'">Связаться через Telegram</button>
     </div>
 
     <script>
@@ -125,4 +129,5 @@
     </script>
 </body>
 </html>
+
 
